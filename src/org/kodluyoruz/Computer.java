@@ -11,48 +11,101 @@ package org.kodluyoruz;
  *
  * TODO Bu alanların getter ve setter metotlarını oluşturun.
  */
-public class Computer
-{
+public class Computer{
+
 
     /**
      * anakart
      */
+
     private Hardware motherboard;
+
+    public Hardware getMotherboard() {
+        return motherboard;
+    }
+    public void setMotherboard(Hardware motherboard) {
+        this.motherboard = motherboard;
+    }
+
 
     /**
      * işlemci
      */
     private Hardware cpu;
+    public Hardware getCpu() {
+        return cpu;
+    }
+    public void setCpu(Hardware cpu) {
+
+        this.cpu = cpu;
+    }
 
     /**
      * RAM
      */
     private Hardware ram;
+    public Hardware getRam() {
+        return ram;
+    }
+    public void setRam(Hardware ram) {
+
+        this.ram = ram;
+    }
+
 
     /**
      * SSD
      * İsteğe bağlı: Her bilgisayarda SSD olmayabilir
      */
     private Hardware ssd;
+    public Hardware getSsd() {
+        return ssd;
+    }
+    public void setSsd(Hardware ssd) {
+
+        this.ssd = ssd;
+    }
 
     /**
      * ekran kartı
      * İsteğe bağlı: Her bilgisayarda ekran kartı olmayabilir
      */
     private Hardware gpu;
+    public Hardware getGpu() {
+        return gpu;
+    }
 
+    public void setGpu(Hardware gpu) {
+        this.gpu = gpu;
+
+    }
     public double getTotalPrice()
     {
+       double total=0;
+
+       total+= getRam().getPrice()+getMotherboard().getPrice()+getCpu().getPrice()+getSsd().getPrice()+getGpu().getPrice();
+
+        return total;
+
+
         // Bu metot bilgisayarın donanımlarına bakarak toplam fiyatını hesaplar.
         // TODO metodu doldurun
-        return 0.0;
+
     }
+
 
     public int getTotalPower()
     {
+        int total=0;
+
+       total+= getCpu().getPower()+getGpu().getPower()+getSsd().getPower()+getRam().getPower()+getMotherboard().getPower();
+
+        return total ;
+
+
         // Bu metot bilgisayarın donanımlarına bakarak toplamda ne kadar güç tüketeceğini hesaplar.
         // TODO metodu doldurun
-        return 0;
+
     }
 
 }
